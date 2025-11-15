@@ -7,7 +7,7 @@ COPY src ./src
 RUN mvn -B package -DskipTests
 
 # === Run stage ===
-FROM eclipse-temurin:17-jre
+FROM bellsoft/liberica-openjre-alpine-musl:17
 WORKDIR /app
 COPY --from=build /app/target/sentiment-0.0.1-SNAPSHOT.jar app.jar
 
